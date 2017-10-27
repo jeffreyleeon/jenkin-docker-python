@@ -5,7 +5,6 @@ pipeline {
         stage('Build and Test') {
             steps {
                 checkout scm
-                sh "sudo -S true"
                 sh "mkdir -p /Users/leechunon/Documents/self-projects/docker/logs"
                 echo "Build and Test Start"
                 sh "docker build -t jeffrey-testing ."
@@ -24,7 +23,6 @@ pipeline {
             junit allowEmptyResults: true, testResults: '/Users/leechunon/Documents/self-projects/docker/logs/results.xml'
             echo "Reporting End"
             echo "Tearing down Start"
-            sh "sudo -S true"
             echo "Tearing down End"
         }
     }
